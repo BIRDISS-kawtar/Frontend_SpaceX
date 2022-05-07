@@ -5,6 +5,7 @@
       <h1>Your place to track SpaceX launches!</h1>
       <!----------Last 10 launches---------->
       <UpcomingLaunch/>
+      <RouterView/>
       <!----------Upcoming Launch----------->
     </v-main>
   </v-app>
