@@ -13,7 +13,7 @@
                     </v-img>
                     <v-card-text class="text--primary">
                         <h3>Launched The</h3>
-                        {{launch[1].date_utc}}
+                        {{launch[1].date_local}}
                     </v-card-text>
                     <v-card-actions>
                         <v-btn color="blue">See More</v-btn>
@@ -49,50 +49,50 @@ export default {
 				const error = (this.launches_initial_results && this.launches_initial_results.message) || response.statusText;
 				return Promise.reject(error);
 			}
-            /*---------------Set the value of launches_results list in function of the currentOption-------------*/ 
-            switch (this.selectedOption) { 
-                case 'Failed launches':
-                    this.launches_final_results = [];
-                    for(const launch of Object.entries(this.launches_initial_results)){ 
-                        if(!launch[1].success){
-                            console.log("LAUNCH Failed ",launch[1].success);
-                            this.launches_final_results.push(launch);
-                        }
-                    }
-                    break;
-                case 'Successful launches':
-                    this.launches_final_results = [];
-                    for(const launch of Object.entries(this.launches_initial_results)){ 
-                        if(launch[1].success){
-                            console.log("LAUNCH Successful ",launch[1].success);
-                            this.launches_final_results.push(launch);
-                        }
-                    }
-                    break;
-                default: // Default case : all launches 
-                    this.launches_final_results = [];
-                    this.launches_final_results = Object.entries(this.launches_initial_results);
-                    break;
-            }
-            /*-------------------Date formatting and Sorting--------------------*/
-            this.launches_final_results.reverse((date1,date2) => Date(date1.date_utc)-Date(date2.date_utc));// Descending sort
-            console.log("Before ",this.launches_final_results.length);
-            if(this.launches_final_results.length > 10){// Pick only the last 10 past launches in function of the dropdown selected option
-                this.launches_final_results = this.launches_final_results.slice(0,10);
-            }
-            console.log("After ",this.launches_final_results.length);
-            for(const value of this.launches_final_results){// Formatting : UTC string date to dd/mm/yyyy format
-                console.log("Final ",value);
-                const UTCdate = new Date(value[1].date_utc);
-                const formattedDate = UTCdate.toLocaleDateString();
-                value[1].date_utc = formattedDate;
-                console.log(value[1].date_utc); 
-            }
             //console.log(typeof this.launches_results);
         })
         .catch(error => {
             console.error(error);
         });
+        /*---------------Set the value of launches_results list in function of the currentOption-------------*/ 
+        switch (this.selectedOption) { 
+            case 'Failed launches':
+                this.launches_final_results = [];
+                for(const launch of Object.entries(this.launches_initial_results)){ 
+                    if(!launch[1].success){
+                        console.log("LAUNCH Failed ",launch[1].success);
+                        this.launches_final_results.push(launch);
+                    }
+                }
+                break;
+            case 'Successful launches':
+                this.launches_final_results = [];
+                for(const launch of Object.entries(this.launches_initial_results)){ 
+                    if(launch[1].success){
+                        console.log("LAUNCH Successful ",launch[1].success);
+                        this.launches_final_results.push(launch);
+                    }
+                }
+                break;
+            default: // Default case : all launches 
+                this.launches_final_results = [];
+                this.launches_final_results = Object.entries(this.launches_initial_results);
+                break;
+        }
+        /*-------------------Date formatting and Sorting--------------------*/
+        this.launches_final_results.reverse((date1,date2) => Date(date1.date_local)-Date(date2.date_local));// Descending sort
+        console.log("Before ",this.launches_final_results.length);
+        if(this.launches_final_results.length > 10){// Pick only the last 10 past launches in function of the dropdown selected option
+            this.launches_final_results = this.launches_final_results.slice(0,10);
+        }
+        console.log("After ",this.launches_final_results.length);
+        for(const value of this.launches_final_results){// Formatting : UTC string date to dd/mm/yyyy format
+            console.log("Final ",value);
+            const UTCdate = new Date(value[1].date_local);
+            const formattedDate = UTCdate.toLocaleDateString();
+            value[1].date_local = formattedDate;
+            console.log(value[1].date_local); 
+        }
       }
   }
 }
