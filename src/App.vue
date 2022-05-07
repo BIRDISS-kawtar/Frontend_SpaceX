@@ -4,7 +4,7 @@
       <!--------------Main Title------------>
       <h1>Your place to track SpaceX launches!</h1>
       <!----------Last 10 launches---------->
-      <Launches/>
+      <UpcomingLaunch/>
       <!----------Upcoming Launch----------->
     </v-main>
   </v-app>
@@ -12,10 +12,12 @@
 
 <script>
 import Launches from "./components/Launches.vue";
+import UpcomingLaunch from "./components/UpcomingLaunch.vue"
 export default {
   name: 'App',
   components: {
     "Launches" : Launches,
+    "UpcomingLaunch" : UpcomingLaunch,
   },
   data(){
     return{
