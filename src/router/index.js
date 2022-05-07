@@ -12,7 +12,7 @@ const router = createRouter({
     },
     {
       // Lazy loaded
-      path: "/launchDetails",
+      path: "/launchDetails/:id?",
       name: "launchDetails",
       component: () => import("../components/Launch.vue"),
     },
