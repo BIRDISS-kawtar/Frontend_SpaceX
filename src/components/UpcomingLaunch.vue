@@ -1,7 +1,17 @@
 <template>
-    <v-banner class="scroll-left">
-        <p>In the Upcoming {{countdown}} seconds, the Launch of {{upcoming_launch.name}} exactly on {{upcoming_launch.date_utc}}</p>
-    </v-banner>
+    <v-parallax src="/src/assets/images/space.jpg" height="300">
+        <div class="d-flex flex-column fill-height justify-center align-center text-white">
+            <div class="text-h5">
+                Within <span class="text-h1 font-weight-bold">{{countdown}}</span> Seconds
+            </div>
+            <div class="text-h5">
+                will be the Launch of 
+                <span class="text-h3 font-weight-bold">{{upcoming_launch.name}}</span> 
+                on 
+                <span class="text-h3 font-weight-bold">{{upcoming_launch.date_utc}}</span>
+            </div>
+        </div>
+    </v-parallax>
 </template>
 
 <script>
@@ -58,7 +68,7 @@ export default {
         setInterval(()=>{   //console.log("UTC date is (Mounted):",this.UTCdate,"formatted : ",this.formattedDate);
                             if(this.UTCdate){
                                 const UTC_currentTimeStamp = (new Date()).getTime();
-                                this.countdown = (this.UTCdate.getTime() - UTC_currentTimeStamp)/1000;// Convert milliseconds to seconds
+                                this.countdown = parseInt((this.UTCdate.getTime() - UTC_currentTimeStamp)/1000);// Convert milliseconds to seconds
                             }
                         },1000);
       }

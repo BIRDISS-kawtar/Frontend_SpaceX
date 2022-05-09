@@ -1,13 +1,15 @@
 <template>
   <v-app>
     <SidebarNavigation/>
-    <v-main>
+    <v-app-bar>
       <!--------------Main Title------------>
-      <h1>Your place to track SpaceX launches!</h1>
-      <!----------Last 10 launches---------->
-      <UpcomingLaunch/>
-      <RouterView/>
+      <v-app-bar-title>SpaceX Launches Tracker</v-app-bar-title>
+    </v-app-bar>
+    <v-main>
       <!----------Upcoming Launch----------->
+      <UpcomingLaunch/>
+      <!----------Last 10 launches---------->
+      <RouterView/>
     </v-main>
   </v-app>
 </template>
