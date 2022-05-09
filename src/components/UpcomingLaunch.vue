@@ -45,7 +45,7 @@ export default {
             console.log(UTCdate," and today is ",UTC_currentTimeStamp);
             console.log("the difference is",this.countdown);
             console.log(UTCdate.getTime(),"offset",UTCdate.getTimezoneOffset()); */
-            console.log("UTC date is (Created):",this.UTCdate,"formatted : ",this.formattedDate);
+            //console.log("UTC date is (Created):",this.UTCdate,"formatted : ",this.formattedDate);
             
         })
         .catch(error => {
@@ -55,7 +55,7 @@ export default {
       setCountdown(){
         /*----------------------Set Realtime Countdown-------------------*/
         this.IDsetIntervall = 
-        setInterval(()=>{   console.log("UTC date is (Mounted):",this.UTCdate,"formatted : ",this.formattedDate);
+        setInterval(()=>{   //console.log("UTC date is (Mounted):",this.UTCdate,"formatted : ",this.formattedDate);
                             if(this.UTCdate){
                                 const UTC_currentTimeStamp = (new Date()).getTime();
                                 this.countdown = (this.UTCdate.getTime() - UTC_currentTimeStamp)/1000;// Convert milliseconds to seconds

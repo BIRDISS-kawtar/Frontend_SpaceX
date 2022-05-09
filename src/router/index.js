@@ -16,6 +16,7 @@ const router = createRouter({
       name: "launchDetails",
       component: () => import("../components/Launch.vue"),
     },
+    
   ],
 });
 

@@ -7,7 +7,7 @@
     <v-container v-for="launch in launches_final_results" :key="launch[0]">
         <v-row >
             <v-col>
-                 <v-card class="mx-auto" max-width="400">
+                <v-card class="mx-auto" max-width="400">
                     <v-img class="white--text align-end" height="200px" v-bind:src="launch[1].links.patch.small">
                         <v-card-title>{{launch[1].name}}</v-card-title>
                     </v-img>
@@ -77,17 +77,17 @@ export default {
             }
             /*-------------------Date formatting and Sorting--------------------*/
             this.launches_final_results.reverse((date1,date2) => Date(date1.date_local)-Date(date2.date_local));// Descending sort
-            console.log("Before ",this.launches_final_results.length);
+            //console.log("Before ",this.launches_final_results.length);
             if(this.launches_final_results.length > 10){// Pick only the last 10 past launches in function of the dropdown selected option
                 this.launches_final_results = this.launches_final_results.slice(0,10);
             }
-            console.log("After ",this.launches_final_results.length);
+            //console.log("After ",this.launches_final_results.length);
             for(const value of this.launches_final_results){// Formatting : UTC string date to dd/mm/yyyy format
-                console.log("Final ",value);
+                //console.log("Final ",value);
                 const UTCdate = new Date(value[1].date_local);
                 const formattedDate = UTCdate.toLocaleDateString();
                 value[1].date_local = formattedDate;
-                console.log(value[1].date_local); 
+                //console.log(value[1].date_local); 
             }
         })
         .catch(error => {
