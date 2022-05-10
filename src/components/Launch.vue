@@ -32,6 +32,14 @@
                     </div>
                 </v-sheet>
                 <v-divider></v-divider>
+                <!------------------Location----------------->
+                <v-sheet rounded="lg" elevation="6" class="mt-4 pa-6" color="#E5E5E5">
+                    <h2>Payloads</h2>
+                    <li v-for="payload in payloads_details" :key="payload">
+                        {{payload[0]}}
+                    </li>
+                </v-sheet>
+                <v-divider></v-divider>
                 <!-----------------Payloads------------------>
                 <v-sheet rounded="lg" elevation="6" class="mt-4 pa-6" color="#E5E5E5">
                     <h2>Payloads</h2>

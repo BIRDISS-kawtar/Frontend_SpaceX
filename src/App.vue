@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <!--------------Sidebar Navigation----------->
     <SidebarNavigation/>
     <v-app-bar>
       <!--------------Main Title------------>
@@ -24,11 +25,6 @@ export default {
     "Launches" : Launches,
     "UpcomingLaunch" : UpcomingLaunch,
     "SidebarNavigation" : SidebarNavigation,
-  },
-  data(){
-    return{
-      // TO ADD
-    };
   },
 }
 </script>
