@@ -13,7 +13,6 @@
         </div>
     </v-parallax>
 </template>
-
 <script>
 export default {
   name: 'UpcomingLaunch',
@@ -50,12 +49,6 @@ export default {
             this.UTCdate = new Date(this.upcoming_launch.date_utc);
             this.formattedDate = this.UTCdate.toLocaleDateString();
             this.upcoming_launch.date_utc = this.formattedDate;
-            /* console.log(this.upcoming_launch.date_utc);
-            console.log(UTCdate.getTime() - UTC_currentTimeStamp);
-            console.log(UTCdate," and today is ",UTC_currentTimeStamp);
-            console.log("the difference is",this.countdown);
-            console.log(UTCdate.getTime(),"offset",UTCdate.getTimezoneOffset()); */
-            //console.log("UTC date is (Created):",this.UTCdate,"formatted : ",this.formattedDate);
             
         })
         .catch(error => {
@@ -65,7 +58,7 @@ export default {
       setCountdown(){
         /*----------------------Set Realtime Countdown-------------------*/
         this.IDsetIntervall = 
-        setInterval(()=>{   //console.log("UTC date is (Mounted):",this.UTCdate,"formatted : ",this.formattedDate);
+        setInterval(()=>{  
                             if(this.UTCdate){
                                 const UTC_currentTimeStamp = (new Date()).getTime();
                                 this.countdown = parseInt((this.UTCdate.getTime() - UTC_currentTimeStamp)/1000);// Convert milliseconds to seconds

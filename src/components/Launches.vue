@@ -1,23 +1,33 @@
 <template>
-    <!------------------Select dropdown list------------------->
-    <select v-model="selectedOption" @change="fetchLaunches">
-        <option v-for="option in selectOptions" :key=option>{{option}}</option>
-    </select>
-    <!-----------------The 10 Launches cards------------------->
-    <v-container v-for="launch in launches_final_results" :key="launch[0]">
-        <v-row >
-            <v-col>
-                <v-card class="mx-auto" max-width="400">
-                    <v-img class="white--text align-end" height="200px" v-bind:src="launch[1].links.patch.small">
-                        <v-card-title>{{launch[1].name}}</v-card-title>
+    <v-container>
+        <v-row align="center">
+            <v-col cols="12">
+                <!------------------Select dropdown list------------------->
+                <v-select
+                    :items="selectOptions"
+                    :menu-props="{ top: true, offsetY: true }"
+                    label="Launches diplay type"
+                    model-value="selectedOption" 
+                    v-model="selectedOption"
+                    @update:modelValue="fetchLaunches"
+                ></v-select>
+            </v-col>
+        </v-row>
+        <v-row>
+            <!-----------------The 10 Launches cards------------------->
+            <v-col v-for="launch in launches_final_results" :key="launch[0]" cols=6>
+                <v-card border=""> 
+                    <v-img height="200" v-bind:src="launch[1].links.patch.small">
                     </v-img>
-                    <v-card-text class="text--primary">
-                        <h3>Launched The</h3>
-                        {{launch[1].date_local}}
+                    <v-card-title>{{launch[1].name}}</v-card-title>
+                    <v-card-text>
+                        Launched The <span class="text-h6">{{launch[1].date_local}}</span>
                     </v-card-text>
                     <v-card-actions>
-                        <RouterLink :to="{ name: 'launchDetails', params: { id: launch[1].id} }">SEE MORE</RouterLink>
-                        <!-- <v-btn color="blue" to="{ name: 'launchDetails', params: { id: launch[1].id } }">See More</v-btn> -->
+                        <v-btn rounded="pill" 
+                                variant="contained-text" 
+                                color="#14213D" 
+                                @click="seeMore(launch[1].id)">SEE MORE</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-col>
@@ -94,6 +104,9 @@ export default {
             console.error(error);
         });
         
+      },
+      seeMore(id_launch){
+        this.$router.push({ name: 'launchDetails', params: { id: id_launch} });
       }
   }
 }

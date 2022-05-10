@@ -3,36 +3,37 @@
         <v-row>
             <v-col>
                 <!-------------Name,Date and image------------------>
-                <v-card>  
+                <v-card rounded="lg" elevation="12">  
                     <v-img v-bind:src="image_link">
-                        <v-card-title>{{launch_details.name}}</v-card-title>
                     </v-img>
-                    <v-card-text class="text--primary">
-                        <h3>Launched The</h3>
-                        {{launch_details.date_local}}
+                    <v-card-title class="text-h4 font-weight-bold">{{launch_details.name}}</v-card-title>
+                    <v-card-text class="text-h6">
+                         Launched the <span class="text-h5 font-weight-bold">{{launch_details.date_local}}</span>
                     </v-card-text>
                 </v-card>
             </v-col>
             <v-col>
                 <!-----------------Description------------------>
-                <v-sheet color="grey">
+                <v-sheet rounded="lg" elevation="6" class="pa-6" color="#E5E5E5">
                     <h2>Description</h2>
                     <p v-if="launch_details.details">{{launch_details.details}}</p>
                     <p v-else> No description available for this launch!</p>
                 </v-sheet>
                 <v-divider></v-divider>
                 <!-----------------Links------------------>
-                <v-sheet color="grey">
+                <v-sheet rounded="lg" elevation="6" class="mt-4 pa-6" color="#E5E5E5">
                     <h2>Some Links</h2>
-                    <v-btn color="green" @click="goToArticle(article_link)">
-                        Article
-                        <v-icon>mdi-text-box</v-icon>
-                    </v-btn>
-                    <VideoPopup :youtubeID="`https://www.youtube.com/embed/${youtube_id}?enablejsapi=1`" />
+                    <div class="mt-4 text-center">
+                        <v-btn class="mr-4" color="amber darken-1" @click="goToArticle(article_link)">
+                            Article
+                            <v-icon>mdi-text-box</v-icon>
+                        </v-btn>
+                        <VideoPopup :youtubeID="`https://www.youtube.com/embed/${youtube_id}?enablejsapi=1`" />
+                    </div>
                 </v-sheet>
                 <v-divider></v-divider>
                 <!-----------------Payloads------------------>
-                <v-sheet color="grey">
+                <v-sheet rounded="lg" elevation="6" class="mt-4 pa-6" color="#E5E5E5">
                     <h2>Payloads</h2>
                     <li v-for="payload in payloads_details" :key="payload">
                         {{payload[0]}}
@@ -40,7 +41,7 @@
                 </v-sheet>
                 <v-divider></v-divider>
                 <!-----------------Customers------------------>
-                <v-sheet color="grey">
+                <v-sheet rounded="lg" elevation="6" class="mt-4 pa-6" color="#E5E5E5">
                     <h2>Customers</h2>
                     <template v-for="payload in payloads_details" :key="payload">
                         <li v-for="customer in payload[1]" :key="customer">
@@ -126,3 +127,6 @@ export default{
     },
 }
 </script>
+<style scoped>
+
+</style>

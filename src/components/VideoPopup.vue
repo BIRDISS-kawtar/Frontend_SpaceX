@@ -1,6 +1,6 @@
 <template>
     <!--------------Open Video Popup Button in Parent--------------->
-    <v-btn color="green" @click="dialog = true">
+    <v-btn color="amber darken-1" @click="dialog = true">
         Youtube Video
         <v-icon>mdi-youtube</v-icon>
     </v-btn>

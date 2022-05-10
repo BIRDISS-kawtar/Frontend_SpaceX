@@ -1,13 +1,13 @@
 <template>
-      <v-navigation-drawer width="110" color="grey">
+      <v-navigation-drawer width="110" color="#344955">
             <v-btn
                 class="ma-2 pa-12"
                 icon
-                color="white lighten-2"
+                color="amber darken-1"
                 to="/"
             >
-                <v-icon size="65">mdi-rocket-launch</v-icon>
+                <v-icon color="white" size="65">mdi-rocket-launch</v-icon>
             </v-btn>
-        <v-divider></v-divider>
+        <v-divider thickness="2"></v-divider>
       </v-navigation-drawer>
 </template>
