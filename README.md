@@ -17,7 +17,10 @@
 - La navigation entre pages en utilisant vue-router
 - En plus de l'ajout d'une barre de navigation pour faciliter le retour à la page d'accueil
 ## Ce qui m'a pris plus du temps 
-
+- L'usage des nouveaux outils (C'est la permière fois que j'utilise Vite,Vuetify,SpaceX API et Youtube API iFrame) m'a pris un peu de temps surtout qu'il fallait se documenter avant de les utiliser
+- Le traitement et le formattage des dates et du temps
+- L'affichage de la vidéo en popup, car je n'étais pas à l'aise avec l'usage de v-slot:activator avec {on,attrs} du composant Dialog en Vuetify
+- Aussi les styles
 ## Ce qui m'a bloqué (Difficultés)
 
 ## Outils 
