@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="spacex-frontend-exercice">SpaceX Frontend Exercice</h1>
+<h2 id="installation">Installation</h2>
+<p>Pour tester le travail :</p>
+<ul>
+<li>Faire un clone de ce repo</li>
+<li>Exécuter la commande : <strong>npm install</strong>  pour avoir les packages nécessaires</li>
+<li>Exécuter la commande : <strong>npm run dev</strong></li>
+</ul>
+<h2 id="%E2%9C%85-ce-qui-jai-pu-faire">✅ Ce qui j'ai pu faire</h2>
+<ul>
+<li>
+<h3 id="la-page-daccueil-avec">La page d'accueil avec :</h3>
+<ul>
+<li>Titre principal</li>
+<li>Décompte en secondes (temps-réel) et informations du prochain lancement (nom et date formattée)</li>
+<li>Menu avec 3 options (Tous les lancements, lancements réussis et lancements échoués)</li>
+<li>Affichage en fonction du choix selectionné en menu des :
+<ul>
+<li>Si le résultat du fetch &gt;= 10 : Des 10 derniers lancements</li>
+<li>Sinon des résultats retournés par l'API</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="la-page-des-d%C3%A9tails-dun-lancement">La page des détails d'un lancement :</h3>
+<ul>
+<li>Affichage des détails du lancement(nom,date formattée,image,texte détails,liens associés,les noms des chargements et des clients) [NB: Je n'ai pas affiché le nom du lieu de lancement car je n'ai pas pu le détecter parmi les résultats retournés ! ]</li>
+<li>Pour le lien de l'article, la redirection se fait vers un nouvel onglet</li>
+<li>Pour le lien de la vidéo Youtube, l'affichage se fait au niveau d'un popup</li>
+</ul>
+</li>
+<li>
+<h3 id="la-navigation-entre-pages-en-utilisant-vue-router">La navigation entre pages en utilisant vue-router</h3>
+</li>
+<li>
+<h3 id="en-plus-de-lajout-dune-barre-de-navigation-pour-faciliter-le-retour-%C3%A0-la-page-daccueil">En plus de l'ajout d'une barre de navigation pour faciliter le retour à la page d'accueil</h3>
+</li>
+</ul>
+<h2 id="%E2%8F%B0-ce-qui-ma-pris-plus-du-temps">⏰ Ce qui m'a pris plus du temps</h2>
+<ul>
+<li>L'usage des nouveaux outils (C'est la permière fois que j'utilise Vite,Vuetify,SpaceX API et Youtube API iFrame) m'a pris un peu de temps surtout qu'il fallait se documenter avant de les utiliser</li>
+<li>Le traitement et le formattage des dates et du temps car il fallait se documenter sur les timezones,etc</li>
+<li>L'affichage de la vidéo en popup, car je n'étais pas à l'aise avec l'usage de v-slot:activator avec {on,attrs} du composant Dialog en Vuetify</li>
+<li>Aussi les styles</li>
+</ul>
+<h2 id="%F0%9F%98%A9-ce-qui-ma-bloqu%C3%A9-difficult%C3%A9s">😩 Ce qui m'a bloqué (Difficultés)</h2>
+<ul>
+<li>Le tout premier problème que j'ai c'est au niveau de l'accés aux objets imbriqués (Nested Objects). En effet, à chaque fois que j'actualise la page je remarque que je n'ai plus accés au champs imbriqués en m'indiquant que c'est undefined.Une solution que j'ai utilisé pour me débrouiller c'est de stocker ces valeurs dans Data Properties au lieu de les accéder direcetement</li>
+<li>J'avais un problème au niveau de la portée (scope) de &quot;this&quot;, il s'est avéré que c'est à cause de la syntaxe du coup je l'ai changé en Arrow Synatax, c'est ce qui m'a bloqué plusieurs fois avec v-select et v-dialog</li>
+<li>Je n'avais pas assez de visibilité sur ce qui passe derrière ( surtout avec Event Handling) en utilisant les composants Vuetify</li>
+</ul>
+<h2 id="outils">Outils</h2>
+<ul>
+<li>Vite</li>
+<li>Vuetify</li>
+<li>SpaceX API</li>
+<li>Youtube API iFrame</li>
+<li>Vue-Router</li>
+<li>Fetch</li>
+</ul>
+
+</body>
+</html>

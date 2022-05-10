@@ -2,7 +2,7 @@
 
 ## Installation
 Pour tester le travail :
-- Faire un clone de ce repo :
+- Faire un clone de ce repo 
 - Exécuter la commande : **npm install**  pour avoir les packages nécessaires
 - Exécuter la commande : **npm run dev**
 ## ✅ Ce qui j'ai pu faire 
