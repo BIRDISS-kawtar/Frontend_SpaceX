@@ -18,10 +18,18 @@
 - En plus de l'ajout d'une barre de navigation pour faciliter le retour à la page d'accueil
 ## Ce qui m'a pris plus du temps 
 - L'usage des nouveaux outils (C'est la permière fois que j'utilise Vite,Vuetify,SpaceX API et Youtube API iFrame) m'a pris un peu de temps surtout qu'il fallait se documenter avant de les utiliser
-- Le traitement et le formattage des dates et du temps
+- Le traitement et le formattage des dates et du temps car il fallait se documenter sur les timezones,etc
 - L'affichage de la vidéo en popup, car je n'étais pas à l'aise avec l'usage de v-slot:activator avec {on,attrs} du composant Dialog en Vuetify
 - Aussi les styles
 ## Ce qui m'a bloqué (Difficultés)
+- Le tout premier problème que j'ai c'est au niveau de l'accés aux objets imbriqués (Nested Objects). En effet, à chaque fois que j'actualise la page je remarque que je n'ai plus accés au champs imbriqués en m'indiquant que c'est undefined.Une solution que j'ai utilisé pour me débrouiller c'est de stocker ces valeurs dans Data Properties au lieu de les accéder direcetement
+- J'avais un problème au niveau de la portée (scope) de "this", il s'est avéré que c'est à cause de la syntaxe du coup je l'ai changé en Arrow Synatax, c'est ce qui m'a bloqué plusieurs fois avec v-select et v-dialog
+- Je n'avais pas assez de visibilité sur ce qui passe derrière ( surtout avec Event Handling) en utilisant les composants Vuetify
 
 ## Outils 
-
+- Vite
+- Vuetify
+- SpaceX API
+- Youtube API iFrame
+- Vue-Router
+- Fetch
