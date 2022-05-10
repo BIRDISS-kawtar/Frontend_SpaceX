@@ -13,8 +13,12 @@
                     frameborder="0">
                 </iframe>
             </v-card-content>
-            <v-card-actions>
-            <v-btn color="primary" block @click="dialog = false">Close</v-btn>
+            <v-card-actions d-flex flex-column justify-end>
+              <v-col class="text-right">
+                <v-btn icon class="bg-amber darken-1" @click="dialog = false">
+                  <v-icon>mdi-close</v-icon>
+                </v-btn>
+              </v-col>
             </v-card-actions>
         </v-card>
     </v-dialog>

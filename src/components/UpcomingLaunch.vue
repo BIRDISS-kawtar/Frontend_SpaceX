@@ -1,10 +1,10 @@
 <template>
     <v-parallax src="/src/assets/images/space.jpg" height="300">
-        <div class="d-flex flex-column fill-height justify-center align-center text-white">
-            <div class="text-h5">
-                Within <span class="text-h1 font-weight-bold">{{countdown}}</span> Seconds
+        <div class="d-flex flex-column fill-height justify-center align-center text-amber darken-1">
+            <div class="text-h5 font-weight-bold">
+                Within <span class="text-h1 text-white font-weight-bold">{{countdown}}</span> Seconds
             </div>
-            <div class="text-h5">
+            <div class="text-h5 font-weight-bold">
                 will be the Launch of 
                 <span class="text-h3 font-weight-bold">{{upcoming_launch.name}}</span> 
                 on 

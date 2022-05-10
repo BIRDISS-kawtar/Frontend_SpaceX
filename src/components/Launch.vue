@@ -117,7 +117,20 @@ export default{
                         const error = (result && result) || response.statusText;
                         return Promise.reject(error);
                     }
-                    this.payloads_details.push([result.name,result.customers]);
+                    /*------------Predict the case of null customers--------*/
+                    const customers_final=[];
+                    if(result.customers.lentgh > 0){
+                        for(customer of result.customers){
+                            if(customer === ""){
+                                customers_final.push("No available customers!");
+                            }else{
+                                customers_final.push(customer);
+                            }
+                        }
+                    }else{
+                        customers_final.push("No available customers!");
+                    }
+                    this.payloads_details.push([result.name,customers_final]);
                 })
                 .catch(error => {
                     console.error(error);

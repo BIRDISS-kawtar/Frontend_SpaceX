@@ -6,7 +6,7 @@
                 <v-select
                     :items="selectOptions"
                     :menu-props="{ top: true, offsetY: true }"
-                    label="Launches diplay type"
+                    label="Launches display type"
                     model-value="selectedOption" 
                     v-model="selectedOption"
                     @update:modelValue="fetchLaunches"
@@ -16,18 +16,20 @@
         <v-row>
             <!-----------------The 10 Launches cards------------------->
             <v-col v-for="launch in launches_final_results" :key="launch[0]" cols=6>
-                <v-card border=""> 
+                <v-card elevation="6"> 
                     <v-img height="200" v-bind:src="launch[1].links.patch.small">
                     </v-img>
-                    <v-card-title>{{launch[1].name}}</v-card-title>
-                    <v-card-text>
-                        Launched The <span class="text-h6">{{launch[1].date_local}}</span>
+                    <v-card-title class="text-h5 font-weight-bold">{{launch[1].name}}</v-card-title>
+                    <v-card-text class="text-h6">
+                        Launched the <span class="font-weight-bold">{{launch[1].date_local}}</span>
                     </v-card-text>
                     <v-card-actions>
-                        <v-btn rounded="pill" 
+                        <v-col class="text-right">
+                            <v-btn rounded="pill" 
+                                color="#344955"
                                 variant="contained-text" 
-                                color="#14213D" 
                                 @click="seeMore(launch[1].id)">SEE MORE</v-btn>
+                        </v-col>
                     </v-card-actions>
                 </v-card>
             </v-col>

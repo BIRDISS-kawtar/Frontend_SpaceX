@@ -3,7 +3,7 @@
     <SidebarNavigation/>
     <v-app-bar>
       <!--------------Main Title------------>
-      <v-app-bar-title>SpaceX Launches Tracker</v-app-bar-title>
+      <v-app-bar-title class="text-amber darken-1 font-weight-bold">SpaceX Launches Tracker</v-app-bar-title>
     </v-app-bar>
     <v-main>
       <!----------Upcoming Launch----------->
