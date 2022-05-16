@@ -26,7 +26,7 @@ Pour tester le travail :
 - Aussi les styles
 ## 😩 Ce qui m'a bloqué (Difficultés)
 - Le tout premier problème que j'ai c'est au niveau de l'accés aux objets imbriqués (Nested Objects). En effet, à chaque fois que j'actualise la page je remarque que je n'ai plus accés au champs imbriqués en m'indiquant que c'est undefined.Une solution que j'ai utilisé pour me débrouiller c'est de stocker ces valeurs dans Data Properties au lieu de les accéder direcetement
-- J'avais un problème au niveau de la portée (scope) de "this", il s'est avéré que c'est à cause de la syntaxe du coup je l'ai changé en Arrow Synatax, c'est ce qui m'a bloqué plusieurs fois avec v-select et v-dialog
+- J'avais un problème au niveau de la portée (scope) de "this", il s'est avéré que c'est à cause de la syntaxe du coup je l'ai changé en Arrow Syntax, c'est ce qui m'a bloqué plusieurs fois avec v-select et v-dialog
 - Je n'avais pas assez de visibilité sur ce qui passe derrière ( surtout avec Event Handling) en utilisant les composants Vuetify
 
 ## Outils 
